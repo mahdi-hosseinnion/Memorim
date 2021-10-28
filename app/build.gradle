@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
     id 'kotlin-parcelize'
 }
 
@@ -49,7 +50,7 @@ android {
 }
 
 dependencies {
-    // App dependencies
+    //                  App dependencies
     implementation "androidx.core:core-ktx:$coreKtx_version"
     implementation "androidx.appcompat:appcompat:$appCompat_version"
     implementation "com.google.android.material:material:$material_version"
@@ -58,7 +59,12 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleRuntimeKtx_version"
     implementation "androidx.activity:activity-compose:$activityCompose_version"
-    // Testing dependencies
+    //Room
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+
+    //                  Testing dependencies
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$testExtJunit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCore_version"
