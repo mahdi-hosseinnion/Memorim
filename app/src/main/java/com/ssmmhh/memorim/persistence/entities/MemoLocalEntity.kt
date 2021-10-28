@@ -1,4 +1,4 @@
-package com.ssmmhh.memorim.persistence
+package com.ssmmhh.memorim.persistence.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -1,8 +1,12 @@
-package com.ssmmhh.memorim.persistence
+package com.ssmmhh.memorim.persistence.utils
 
 import com.ssmmhh.memorim.domain.models.Memo
 import com.ssmmhh.memorim.domain.util.EntityMapper
+import com.ssmmhh.memorim.persistence.entities.MemoLocalEntity
 
+/**
+ * Simple mapper object for converting MemoLocalEntity to Memo and reverse
+ */
 object MemoLocalMapper : EntityMapper<MemoLocalEntity, Memo> {
 
     override fun Memo.toEntityModel(): MemoLocalEntity = MemoLocalEntity(
