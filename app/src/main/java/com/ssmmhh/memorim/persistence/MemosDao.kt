@@ -34,6 +34,6 @@ interface MemosDao {
      * @return an int value indicating the number of rows that were deleted successfully
      */
     @Delete
-    suspend fun deleteMemo(memoEntity: MemoLocalEntity)
+    suspend fun deleteMemo(memoEntity: MemoLocalEntity): Int
 
 }
