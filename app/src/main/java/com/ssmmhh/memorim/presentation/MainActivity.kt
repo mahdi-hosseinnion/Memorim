@@ -1,4 +1,4 @@
-package com.ssmmhh.memorim
+package com.ssmmhh.memorim.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,7 +8,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.ssmmhh.memorim.ui.theme.MemorimTheme
+import com.ssmmhh.memorim.presentation.ui.theme.MemorimTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

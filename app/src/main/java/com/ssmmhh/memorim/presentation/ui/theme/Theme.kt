@@ -1,4 +1,4 @@
-package com.ssmmhh.memorim.ui.theme
+package com.ssmmhh.memorim.presentation.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

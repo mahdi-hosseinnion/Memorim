@@ -1,4 +1,4 @@
-package com.ssmmhh.memorim.ui.theme
+package com.ssmmhh.memorim.presentation.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

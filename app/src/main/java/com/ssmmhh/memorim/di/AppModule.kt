@@ -1,7 +1,7 @@
 package com.ssmmhh.memorim.di
 
 import android.content.Context
-import com.ssmmhh.memorim.BaseApplication
+import com.ssmmhh.memorim.presentation.BaseApplication
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

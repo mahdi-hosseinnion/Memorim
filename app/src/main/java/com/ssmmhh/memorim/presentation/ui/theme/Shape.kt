@@ -1,4 +1,4 @@
-package com.ssmmhh.memorim.ui.theme
+package com.ssmmhh.memorim.presentation.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

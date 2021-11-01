@@ -1,4 +1,4 @@
-package com.ssmmhh.memorim
+package com.ssmmhh.memorim.presentation
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
