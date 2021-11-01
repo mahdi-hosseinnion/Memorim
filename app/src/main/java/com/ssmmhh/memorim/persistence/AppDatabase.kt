@@ -12,4 +12,8 @@ import com.ssmmhh.memorim.utils.Logger.DEBUG
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun memosDao(): MemosDao
+
+    companion object {
+        const val DATABASE_NAME= "memos.db"
+    }
 }
