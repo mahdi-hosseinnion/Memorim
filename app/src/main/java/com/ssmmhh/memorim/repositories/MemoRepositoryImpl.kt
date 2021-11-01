@@ -1,4 +1,4 @@
-package com.ssmmhh.memorim.repository
+package com.ssmmhh.memorim.repositories
 
 import com.ssmmhh.memorim.domain.models.Memo
 import com.ssmmhh.memorim.persistence.MemosDao
