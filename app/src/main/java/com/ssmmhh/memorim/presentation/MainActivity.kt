@@ -18,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private  val TAG = "MainActivity"
+    private val TAG = "MainActivity"
 
     private val viewModel1: MemoListViewModel by viewModels()
     private val viewModel2: MemoViewModel by viewModels()
@@ -26,11 +26,21 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Log.d(TAG, "onCreate: viewModel1: ${viewModel1.hashCode()}")
-        Log.d(TAG, "onCreate: viewModel2: ${viewModel2.hashCode()}")
-        Log.d(TAG, "onCreate: activity: ${(this as MainActivity).hashCode()}")
-
         setContent {
+            /**
+             * every time 'viewModel1.memos' value changes 'composeMemos' while change too
+             * and every composable that uses 'composeMemos' will recompose
+             */
+            val composeMemos = viewModel1.memos.value
+            Log.d(
+                TAG,
+                "onCreate: composeMemos: -------------------------------------- size is ${composeMemos.size}"
+            )
+
+            for (item in composeMemos) {
+                Log.d(TAG, "onCreate: item: $item")
+            }
+
             MemorimTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
