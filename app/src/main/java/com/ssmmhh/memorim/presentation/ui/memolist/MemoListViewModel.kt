@@ -9,6 +9,7 @@ import com.ssmmhh.memorim.domain.util.MemoFactory
 import com.ssmmhh.memorim.repositories.MemoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -22,22 +23,6 @@ class MemoListViewModel
 ) : ViewModel() {
     private val TAG = "MemoListViewModel"
 
-    val memos: MutableState<List<Memo>> = mutableStateOf(emptyList())
+    val memos: Flow<List<Memo>> get() = memoRepository.observeMemos()
 
-    init {
-        viewModelScope.launch {
-            launch {
-                memoRepository.observeMemos().collect {
-                    memos.value = it
-                }
-            }
-            launch {
-                for (i in 0..5) {
-                    delay(Random.nextLong(1500, 5000))
-                    memoRepository.insertMemo(MemoFactory.createRandomMemo())
-                }
-            }
-        }
-
-    }
 }
