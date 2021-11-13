@@ -1,22 +1,19 @@
 package com.ssmmhh.memorim.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Done
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -51,7 +48,9 @@ class MainActivity : ComponentActivity() {
                 Surface(color = greyBackgroundColor) {
                     Column {
 
-                        LazyColumn {
+                        LazyColumn(
+                            modifier = Modifier.weight(1f)
+                        ) {
                             itemsIndexed(
                                 items = composeMemos
                             ) { i, memo ->
@@ -64,8 +63,31 @@ class MainActivity : ComponentActivity() {
                                 })
                             }
                         }
-//                        Spacer(modifier = Modifier.padding(4.dp))
-                        TextField(value = "hey im text field", onValueChange = {})
+                        Row(
+                            modifier = Modifier
+                                .height(64.dp)
+                                .fillMaxWidth()
+                                .padding(4.dp)
+                        ) {
+                            TextField(
+                                value = "hey im text field", onValueChange = {},
+                                modifier = Modifier.weight(1f)
+                            )
+                            Spacer(modifier = Modifier.padding(4.dp))
+                            IconButton(
+                                onClick = {},
+                                modifier = Modifier
+                                    .align(Alignment.CenterVertically)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Filled.Done,
+                                    contentDescription = "Create memo"
+                                )
+                            }
+                            Spacer(modifier = Modifier.padding(4.dp))
+
+                        }
+
 
                     }
                 }
