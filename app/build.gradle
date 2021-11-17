@@ -60,7 +60,7 @@ android {
 }
 
 dependencies {
-    //                  App dependencies
+    //------------App dependencies
     implementation "androidx.core:core-ktx:$coreKtx_version"
     implementation "androidx.appcompat:appcompat:$appCompat_version"
     implementation "com.google.android.material:material:$material_version"
@@ -69,15 +69,21 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleRuntimeKtx_version"
     implementation "androidx.activity:activity-compose:$activityCompose_version"
+
     //Room
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
+
     //Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
-    //                  Testing dependencies
+    //navigation component
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //------------Testing dependencies
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$testExtJunit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCore_version"

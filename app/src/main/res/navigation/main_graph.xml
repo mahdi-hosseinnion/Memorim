@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/memoListFragment">
+
+    <fragment
+        android:id="@+id/memoListFragment"
+        android:name="com.ssmmhh.memorim.presentation.ui.memolist.MemoListFragment"
+        android:label="MemoListFragment" >
+        <action
+            android:id="@+id/action_memoListFragment_to_memoFragment"
+            app:destination="@id/memoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/memoFragment"
+        android:name="com.ssmmhh.memorim.presentation.ui.memo.MemoFragment"
+        android:label="MemoFragment" />
+</navigation>
