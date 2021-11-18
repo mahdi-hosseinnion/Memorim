@@ -16,7 +16,7 @@ interface MemosDao {
      *
      * @return all memos.
      */
-    @Query("SELECT * FROM memos")
+    @Query("SELECT * FROM memos ORDER BY id DESC")
     fun observeMemos(): Flow<List<MemoLocalEntity>>
 
 

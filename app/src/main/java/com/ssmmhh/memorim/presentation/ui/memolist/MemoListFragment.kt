@@ -108,7 +108,9 @@ class MemoListFragment : Fragment() {
                             )
                             Spacer(modifier = Modifier.padding(4.dp))
                             IconButton(
-                                onClick = {},
+                                onClick = {
+                                    viewModel.insertNewMemo()
+                                },
                                 modifier = Modifier
                                     .align(Alignment.CenterVertically)
                                     .background(color = Purple200)
