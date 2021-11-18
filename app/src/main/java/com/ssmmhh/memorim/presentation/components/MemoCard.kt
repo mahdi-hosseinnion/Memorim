@@ -42,7 +42,7 @@ fun MemoCard(
             )
             .fillMaxWidth()
             .clickable { onClick(memo) },
-        elevation = 4.dp,
+        elevation = 2.dp,
     ) {
         Column {
             Text(
