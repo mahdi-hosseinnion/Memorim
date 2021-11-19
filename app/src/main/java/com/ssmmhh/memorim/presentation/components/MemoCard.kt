@@ -1,10 +1,8 @@
 package com.ssmmhh.memorim.presentation.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -25,6 +23,17 @@ private fun PreviewMemoCard() {
     )
     val onClick: (memo: Memo) -> Unit = { }
     MemoCard(memo = previewMemo, onClick = onClick)
+}
+
+@Preview
+@Composable
+private fun PreviewTestMemoCard() {
+    val previewMemo = MemoFactory.createMemo(
+        title = "Title",
+        description = "description"
+    )
+    val onClick: (memo: Memo) -> Unit = { }
+    TestMemoCard(memo = previewMemo, onClick = onClick)
 }
 
 @Composable
@@ -73,5 +82,20 @@ fun MemoCard(
         }
     }
 
+
+}
+
+@Composable
+fun TestMemoCard(
+    memo: Memo,
+    onClick: (memo: Memo) -> Unit,
+) {
+    Column(modifier = Modifier.background(Color.White)) {
+        MemoCard(memo = memo, onClick = onClick)
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(text = "createdAt: ${memo.createdAt}")
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(text = "updatedAt: ${memo.updatedAt}")
+    }
 
 }

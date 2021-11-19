@@ -13,12 +13,16 @@ object MemoLocalMapper : EntityMapper<MemoLocalEntity, Memo> {
         id = this.id,
         title = this.title,
         description = this.description,
+        createdAt = this.createdAt,
+        updatedAt = this.updatedAt,
     )
 
     override fun MemoLocalEntity.toDomainModel(): Memo = Memo(
         id = this.id,
         title = this.title,
         description = this.description,
+        createdAt = this.createdAt,
+        updatedAt = this.updatedAt,
     )
 
     override fun List<Memo>.toEntityModelList(): List<MemoLocalEntity> = map { it.toEntityModel() }
