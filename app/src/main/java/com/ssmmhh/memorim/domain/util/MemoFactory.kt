@@ -17,24 +17,41 @@ object MemoFactory {
     fun createMemo(
         id: Int = 0,
         title: String,
-        description: String? = null
+        description: String? = null,
+        createdAt: Long = DateUtils.currentTimeInSecond(),
+        updatedAt: Long = createdAt
     ): Memo = Memo(
         id = id,
         title = title,
-        description = description
+        description = description,
+        createdAt = createdAt,
+        updatedAt = updatedAt,
     )
 
 
     /**
      * create a random instance of memo class for testing
      */
-    fun createRandomMemo(id: Int = 0): Memo = Memo(
-        id = id,
-        //a random string with random length (between 2 until 20)
-        title = UUID.randomUUID().toString().substring(0, Random.nextInt(2, 20)),
-        //random empty or full description
-        description = if (Random.nextBoolean()) null else UUID.randomUUID().toString()
-    )
+    fun createRandomMemo(id: Int = 0): Memo {
+        val currentTime = DateUtils.currentTimeInSecond()
+        //createdAt value will be a random number between 'currentTime-range' till 'currentTime+range'
+        val range = 10_000
+        val createdAt = Random.nextLong(
+            from = currentTime.minus(range),
+            until = currentTime.plus(range)
+        )
+        // updatedAt value will be 'createdAt + random number(0 till range)'
+        val updatedAt = createdAt.plus(Random.nextInt(range))
+        return createMemo(
+            id = id,
+            //a random string with random length (between 2 until 20)
+            title = UUID.randomUUID().toString().substring(0, Random.nextInt(2, 20)),
+            //random empty or full description
+            description = if (Random.nextBoolean()) null else UUID.randomUUID().toString(),
+            createdAt =createdAt,
+            updatedAt = updatedAt
+        )
+    }
 
     /**
      * create a random list of memos for testing
