@@ -1,6 +1,7 @@
 package com.ssmmhh.memorim.presentation.ui.memo
 
-import android.util.Log
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.ssmmhh.memorim.repositories.MemoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +16,25 @@ class MemoViewModel
 
     private val TAG = "MemoViewModel"
 
-    init {
-        Log.d(TAG, "init: i have repository: $memoRepository")
+    private val _memoTitle = mutableStateOf("")
+    val memoTitle: State<String> get() = _memoTitle
+
+    private val _memoDescription = mutableStateOf("")
+    val memoDescription: State<String> get() = _memoDescription
+
+    private val _isDoneButtonEnable = mutableStateOf(false)
+    val isDoneButtonEnable: State<Boolean> get() = _isDoneButtonEnable
+
+
+    fun onMemoTitleChange(newMemoTitle: String) {
+        //change done button enable state
+        _isDoneButtonEnable.value = newMemoTitle.isNotBlank() || memoDescription.value.isNotBlank()
+        _memoTitle.value = newMemoTitle
+    }
+
+    fun onMemoDescriptionChange(newMemoDescription: String) {
+        //change done button enable state
+        _isDoneButtonEnable.value = newMemoDescription.isNotBlank() || memoTitle.value.isNotBlank()
+        _memoDescription.value = newMemoDescription
     }
 }
