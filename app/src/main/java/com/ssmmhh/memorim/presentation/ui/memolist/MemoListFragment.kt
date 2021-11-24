@@ -78,57 +78,6 @@ class MemoListFragment : Fragment() {
                             })
                         }
                     }
-                    Card(
-                        modifier = Modifier.background(color = Purple200),
-                        elevation = 8.dp,
-                    ) {
-
-                        Row(
-                            modifier = Modifier
-                                .wrapContentHeight()
-                                .fillMaxWidth()
-                                .background(color = Purple200)
-                        ) {
-                            BasicTextField(
-                                value = viewModel.newMemoTitle.value,
-                                onValueChange = {
-                                    viewModel.onNewMemoTitleChange(it)
-                                },
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .align(Alignment.CenterVertically)
-                                    .background(color = Purple200)
-                                    .padding(
-                                        start = 8.dp,
-                                        end = 8.dp,
-                                        bottom = 4.dp,
-                                        top = 4.dp,
-                                    ),
-                                textStyle = TextStyle(fontSize = 20.sp),
-                                maxLines = 5,
-                            )
-                            Spacer(modifier = Modifier.padding(4.dp))
-                            IconButton(
-                                onClick = {
-                                    viewModel.insertNewMemo()
-                                },
-                                modifier = Modifier
-                                    .align(Alignment.CenterVertically)
-                                    .background(color = Purple200)
-                                    .padding(4.dp),
-                                enabled = viewModel.isDoneButtonEnable.value
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Filled.Done,
-                                    contentDescription = "Create memo"
-                                )
-                            }
-                            Spacer(modifier = Modifier.padding(4.dp))
-
-                        }
-                    }
-
-
                 }
             }
         }
