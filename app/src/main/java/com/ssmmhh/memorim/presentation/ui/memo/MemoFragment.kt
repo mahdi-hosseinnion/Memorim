@@ -36,6 +36,11 @@ class MemoFragment : Fragment() {
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        subscribeObservers()
+    }
+
     @Composable
     private fun MainContent() {
         Scaffold(
@@ -49,7 +54,7 @@ class MemoFragment : Fragment() {
                     }
                     Spacer(modifier = Modifier.weight(1f))
                     IconButton(
-                        onClick = { onDoneButtonClicked() },
+                        onClick = { viewModel.onDoneButtonClicked() },
                         enabled = viewModel.isDoneButtonEnable.value
                     ) {
                         Icon(Icons.Filled.Done, "Done")
@@ -92,7 +97,14 @@ class MemoFragment : Fragment() {
 
     }
 
-    private fun onDoneButtonClicked() {
-
+    private fun subscribeObservers() {
+        viewModel.didTheNewMemoInsert.observe(viewLifecycleOwner) {
+            it?.let { inserted ->
+                if (inserted) {
+                    findNavController().navigateUp()
+                }
+            }
+        }
     }
+
 }
